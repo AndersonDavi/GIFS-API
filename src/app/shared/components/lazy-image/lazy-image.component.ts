@@ -16,15 +16,8 @@ export class LazyImageComponent implements OnInit {
   ngOnInit(): void {
     if (!this.url) throw new Error('Val url not found');
   }
-  // onLoad() {
-  //   setTimeout(() => {
-  //     console.log('IMG loaded');
-  //     this.hasLoaded = true;
-  //   }, 500);
-  // }
-
   onLoad() {
-      console.log('IMG loaded');
       this.hasLoaded = true;
+//    setTimeout(() => {}, 500);
   }
 }
