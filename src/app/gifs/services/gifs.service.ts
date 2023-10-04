@@ -24,7 +24,7 @@ export class GifsService {
     }
     const params = new HttpParams()
       .set('api_key', this.GIPHY_API_KEY)
-      .set('limit', '50')
+      .set('limit', '60')
       .set('q', tag);
 
     this.http
@@ -44,7 +44,7 @@ export class GifsService {
 
     this._tagsHistory.unshift(tag);
 
-    this._tagsHistory = this._tagsHistory.splice(0, 10);
+    this._tagsHistory = this._tagsHistory.splice(0, 13);
 
     this.saveLocalStorage();
   }
