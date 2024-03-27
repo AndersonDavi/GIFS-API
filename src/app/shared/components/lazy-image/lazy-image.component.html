@@ -1,5 +1,16 @@
 <div class="d-flex justify-content-center">
-  <img [src]="url" [alt]="alt" class="card-img-top animate__animated animate__bounceIn animate__repeat-1" (load)="onLoad()" [ngStyle]="{display: hasLoaded ? '' : 'none'}"/>
+  <img
+    [src]="url"
+    [alt]="alt"
+    class="card-img-top animate__animated animate__bounceIn animate__repeat-1"
+    (load)="onLoad()"
+    [ngStyle]="{ display: hasLoaded ? '' : 'none' }"
+  />
 
-  <img src="../../assets/loader.svg" alt="" class="card-img-top"  *ngIf="!hasLoaded"/>
+  <img
+    src="././assets/loader.svg"
+    alt=""
+    class="card-img-top"
+    *ngIf="!hasLoaded"
+  />
 </div>
