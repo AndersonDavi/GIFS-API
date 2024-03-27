@@ -14,8 +14,10 @@ export class GifCardComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.gif) throw new Error('Gif value is required');
+
   }
   get MostrarValor() {
     return this.checkBoxService.getMostrarValor();
   }
+
 }
