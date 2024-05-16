@@ -6,3 +6,6 @@
   width: 40px;
   font-size: 35px;
 }
+.mat-drawer-container{
+  min-height: 100vh;
+}

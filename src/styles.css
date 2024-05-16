@@ -28,3 +28,7 @@ body {
   overflow-x: hidden;
   width: 100%;
 }
+
+.mat-drawer-container {
+  background-color: #1f2022 !important;
+}
