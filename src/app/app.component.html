@@ -1,4 +1,26 @@
-<div class="col d-flex">
-  <shared-sidebar></shared-sidebar>
-  <gifs-home-page class="flex-fill"></gifs-home-page>
-</div>
+<mat-drawer-container class="example-container">
+  <mat-drawer
+    #sidenav
+    class="example-sidenav"
+    mode="over"
+    [ngStyle]="{ width: '300px' }"
+  >
+    <shared-sidebar (closeMenu)="toggleSidenav()"></shared-sidebar>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <div class="col d-flex flex-column text-secondary">
+      <div class="row">
+        <div class="col-12">
+          <mat-icon
+            class="menu-button text-light"
+            (click)="toggleSidenav()"
+            fontIcon="menu"
+          ></mat-icon>
+        </div>
+      </div>
+
+      <gifs-home-page class="flex-fill"></gifs-home-page>
+    </div>
+  </div>
+</mat-drawer-container>

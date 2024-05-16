@@ -1,13 +1,20 @@
 <div class="bg-dark border-right p-3 d-flex flex-column" id="sidebar">
-  <h3 class="text-light text-center">GifsApp</h3>
+  <div class="col-12 row">
+    <mat-icon
+      class="text-light col-2"
+      fontIcon="menu"
+      (click)="closeMenu.emit()"
+    ></mat-icon>
+    <h2 class="text-center col-10 text-light">GifsApp</h2>
+  </div>
   <hr class="text-light" />
   <div class="list-group list-reset" id="groupList">
     <button
       class="list-group-item list-group-item-action"
-      (click)="searchTag(tag)"
+      (click)="searchTag(tag); closeMenu.emit()"
       *ngFor="let tag of tags"
     >
-      {{ tag | titlecase}}
+      {{ tag | titlecase }}
     </button>
   </div>
   <shared-giftitle-checkbox></shared-giftitle-checkbox>

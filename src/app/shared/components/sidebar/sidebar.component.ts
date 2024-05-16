@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { GifsService } from '../../../gifs/services/gifs.service';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'shared-sidebar',
@@ -8,7 +9,13 @@ import { GifsService } from '../../../gifs/services/gifs.service';
 })
 export class SidebarComponent {
   constructor(private gifsService: GifsService) {}
+  @Output() closeMenu = new EventEmitter<void>();
+  @ViewChild('sidenav') sidenav!: MatDrawer;
 
+  closeSidenav() {
+    this.sidenav.close();
+  }
+  
   searchTag(tag: string) {
     this.gifsService.searchTag(tag);
   }

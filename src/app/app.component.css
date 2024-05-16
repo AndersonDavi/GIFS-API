@@ -1,0 +1,8 @@
+.menu-button {
+  margin-top: 15px;
+  padding-left: 10px;
+  cursor: pointer;
+  height: auto;
+  width: 40px;
+  font-size: 35px;
+}

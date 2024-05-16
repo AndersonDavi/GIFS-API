@@ -1,7 +1,11 @@
-#sidebar{
+#sidebar {
   height: 100%;
-  width: 250px;
+  width: 100%;
 }
-/* #groupList{
-  overflow-y: auto;
-} */
+mat-icon {
+  font-size: 35px;
+  text-align: center;
+  flex: 1;
+  cursor: pointer;
+  height: auto;
+}
