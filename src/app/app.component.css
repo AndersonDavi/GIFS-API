@@ -1,11 +1,18 @@
 .menu-button {
-  margin-top: 15px;
+  margin-top: 25px;
   padding-left: 10px;
   cursor: pointer;
   height: auto;
   width: 40px;
   font-size: 35px;
 }
-.mat-drawer-container{
+.mat-drawer-container {
   min-height: 100vh;
+}
+.nav-bar {
+  height: 80px;
+}
+img {
+  height: 100%;
+  right: 20px;
 }

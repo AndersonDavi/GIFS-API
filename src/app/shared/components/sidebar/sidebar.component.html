@@ -1,11 +1,13 @@
-<div class="bg-dark border-right p-3 d-flex flex-column" id="sidebar">
+<div class="bg-dark border-right p-3 d-flex flex-column " id="sidebar">
   <div class="col-12 row">
     <mat-icon
       class="text-light col-2"
       fontIcon="menu"
       (click)="closeMenu.emit()"
     ></mat-icon>
-    <h2 class="text-center col-10 text-light">GifsApp</h2>
+    <div class="col-8 img-container d-flex ">
+      <img src="assets/gifsAppLogo.png" alt="" />
+    </div>
   </div>
   <hr class="text-light" />
   <div class="list-group list-reset" id="groupList">

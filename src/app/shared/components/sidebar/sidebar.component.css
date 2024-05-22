@@ -3,9 +3,17 @@
   width: 100%;
 }
 mat-icon {
+  margin-top: 10px;
   font-size: 35px;
   text-align: center;
   flex: 1;
   cursor: pointer;
   height: auto;
+}
+img{
+  width: 100%;
+  object-fit: contain;
+}
+.img-container{
+  height: 60px;
 }
