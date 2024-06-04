@@ -2,8 +2,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { CheckBoxService } from '../../services/check-box.service';
 
 @Component({
-  selector: 'shared-giftitle-checkbox',
-  templateUrl: './giftitle-checkbox.component.html',
+    selector: 'shared-giftitle-checkbox',
+    templateUrl: './giftitle-checkbox.component.html',
+    standalone: true,
 })
 export class GIFTitleCheckboxComponent {
   constructor(private checkBoxService: CheckBoxService) {}
