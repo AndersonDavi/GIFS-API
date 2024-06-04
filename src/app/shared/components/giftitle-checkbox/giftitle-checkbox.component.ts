@@ -9,7 +9,6 @@ import { CheckBoxService } from '../../services/check-box.service';
 export class GIFTitleCheckboxComponent {
   constructor(private checkBoxService: CheckBoxService) {}
   onCheckboxChange(event: any) {
-    // this.visibilityChange.emit(event.target.checked);
     this.checkBoxService.setMostrarValor(event.target.checked);
   }
 }

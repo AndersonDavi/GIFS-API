@@ -2,10 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgStyle, NgIf } from '@angular/common';
 
 @Component({
-    selector: 'shared-lazy-image',
-    templateUrl: './lazy-image.component.html',
-    standalone: true,
-    imports: [NgStyle, NgIf],
+  selector: 'shared-lazy-image',
+  templateUrl: './lazy-image.component.html',
+  standalone: true,
+  imports: [NgStyle, NgIf],
 })
 export class LazyImageComponent implements OnInit {
   @Input()
@@ -20,7 +20,7 @@ export class LazyImageComponent implements OnInit {
     if (!this.url) throw new Error('Val url not found');
   }
   onLoad() {
-      this.hasLoaded = true;
-//    setTimeout(() => {}, 500);
+    this.hasLoaded = true;
+    //    setTimeout(() => {}, 500);
   }
 }

@@ -5,10 +5,10 @@ import { CardListComponent } from '../../components/card-list/card-list.componen
 import { SearchBoxComponent } from '../../components/search-box/search-box.component';
 
 @Component({
-    selector: 'gifs-home-page',
-    templateUrl: './home-page.component.html',
-    standalone: true,
-    imports: [SearchBoxComponent, CardListComponent],
+  selector: 'gifs-home-page',
+  templateUrl: './home-page.component.html',
+  standalone: true,
+  imports: [SearchBoxComponent, CardListComponent],
 })
 export class HomePageComponent {
   constructor(private gifsService: GifsService) {}
@@ -16,6 +16,4 @@ export class HomePageComponent {
   get gifs(): Gif[] {
     return this.gifsService.gifList;
   }
-
-
 }
