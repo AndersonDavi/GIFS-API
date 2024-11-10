@@ -25,8 +25,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 .example-sidenav-content {
-  overflow-x: hidden;
-  width: 100%;
 }
 
 .mat-drawer-container {

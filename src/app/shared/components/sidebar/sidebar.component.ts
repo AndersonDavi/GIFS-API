@@ -30,7 +30,7 @@ export class SidebarComponent {
   }
 
   searchTag(tag: string) {
-    this.gifsService.searchTag(tag);
+    this.gifsService.setSearchTag(tag);
   }
 
   get tags() {

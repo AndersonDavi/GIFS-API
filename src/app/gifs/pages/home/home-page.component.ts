@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { GifsService } from '../../services/gifs.service';
-import { Gif } from '../../interfaces/gifs.interfaces';
+import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
 import { CardListComponent } from '../../components/card-list/card-list.component';
 import { SearchBoxComponent } from '../../components/search-box/search-box.component';
 
@@ -11,9 +9,12 @@ import { SearchBoxComponent } from '../../components/search-box/search-box.compo
   imports: [SearchBoxComponent, CardListComponent],
 })
 export class HomePageComponent {
-  constructor(private gifsService: GifsService) {}
+  @Input() search: string = '';
+  @ViewChild(CardListComponent) cardListComponent!: CardListComponent;
 
-  get gifs(): Gif[] {
-    return this.gifsService.gifList;
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['search'] && this.cardListComponent) {
+      // this.cardListComponent.getData(this.search); 
+    }
   }
 }

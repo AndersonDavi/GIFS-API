@@ -1,4 +1,4 @@
-<mat-drawer-container class="example-container">
+<mat-drawer-container>
   <mat-drawer
     #sidenav
     class="example-sidenav"
@@ -7,22 +7,30 @@
   >
     <shared-sidebar (closeMenu)="toggleSidenav()"></shared-sidebar>
   </mat-drawer>
-  <div class="example-sidenav-content">
-    <div class="col d-flex flex-column text-light">
-      <div class="row">
-        <div class="col-1">
-          <mat-icon
-            class="menu-button text-light"
-            (click)="toggleSidenav()"
-            fontIcon="menu"
-          ></mat-icon>
-        </div>
-        <div class="nav-bar col-11 d-flex justify-content-center" >
-          <img src="assets/gifsAppLogo.png" alt="" />
-        </div>
+  <div
+    class="d-flex flex-column align-items-center text-light"
+    style="height: auto"
+  >
+    <div class="row col-12" style="height: auto">
+      <div class="col-2 d-flex align-items-center">
+        <mat-icon
+          class="menu-button text-light"
+          (click)="toggleSidenav()"
+          fontIcon="menu"
+        ></mat-icon>
       </div>
-
-      <gifs-home-page class="flex-fill"></gifs-home-page>
+      <div
+        class="col-10 col-md-2 d-flex align-items-center justify-content-center"
+      >
+        <img src="../assets/gifsAppLogo.png" alt="" style="height: 70px" />
+      </div>
+      <div class="col-12 col-md-8">
+        <gifs-search-box (search)="onSearchUpdated($event)"></gifs-search-box>
+      </div>
     </div>
+    <gifs-home-page
+      [search]="searchQuery"
+      class="row col-12 d-flex justify-content-center"
+    ></gifs-home-page>
   </div>
 </mat-drawer-container>

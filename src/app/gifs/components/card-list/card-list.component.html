@@ -1,7 +1,25 @@
-<div class="row">
-  <gif-card
-    *ngFor="let gif of gifs"
-    [gif]="gif"
-    class="col-6 col-sm-6 col-md-3 col-xl-2 d-flex my-auto"
-  ></gif-card>
+
+@if (gifs) {
+<div class="row col">
+  <div class="col-md-3 col-6">
+    <div class="col-12 my-2" *ngFor="let gif of column1">
+      <gif-card [gif]="gif"></gif-card>
+    </div>
+  </div>
+  <div class="col-md-3 col-6">
+    <div class="col-12 my-2" *ngFor="let gif of column2">
+      <gif-card [gif]="gif"></gif-card>
+    </div>
+  </div>
+  <div class="col-md-3 col-6">
+    <div class="col-12 my-2" *ngFor="let gif of column3">
+      <gif-card [gif]="gif"></gif-card>
+    </div>
+  </div>
+  <div class="col-md-3 col-6">
+    <div class="col-12 my-2" *ngFor="let gif of column4">
+      <gif-card [gif]="gif"></gif-card>
+    </div>
+  </div>
 </div>
+}

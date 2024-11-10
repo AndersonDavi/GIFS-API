@@ -2,39 +2,50 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Gif, SearchResponse } from '../interfaces/gifs.interfaces';
 import { environment } from 'src/environments/environments';
+import { tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class GifsService {
-  public gifList: Gif[] = [];
-
+  public searchValue: string = '';
   private _tagsHistory: string[] = [];
   private GIPHY_API_KEY: string = environment.API_KEY;
   private serviceUrl: string = 'https://api.giphy.com/v1/gifs';
 
-  
   constructor(private http: HttpClient) {
     this.loadLocalStorage();
+  }
+
+  getGifs(newSearch?: string) {
+    console.log('api usada');
+
+    if (newSearch) {
+      this.searchValue = newSearch;
+    }
+    const params = new HttpParams()
+      .set('api_key', this.GIPHY_API_KEY)
+      .set('limit', '40')
+      .set('q', this.searchValue);
+
+    return this.http.get<any>(`${this.serviceUrl}/search?`, { params }).pipe(
+      tap((resp) => {
+        console.log(resp.data);
+      })
+    );
   }
 
   get tagsHistory() {
     return [...this._tagsHistory];
   }
 
-  searchTag(tag: string): void {
+  setSearchTag(tag: string): void {
     tag = tag.trim();
     if (tag.length >= 1) {
       this.sortHistory(tag);
     }
-    const params = new HttpParams()
-      .set('api_key', this.GIPHY_API_KEY)
-      .set('limit', '60')
-      .set('q', tag);
-
-    this.http
-      .get<SearchResponse>(`${this.serviceUrl}/search?`, { params })
-      .subscribe((resp) => {
-        this.gifList = resp.data;
-      });
+    this.searchValue = tag;
+  }
+  getSearchTag() {
+    return this.searchValue;
   }
 
   private sortHistory(tag: string) {
@@ -43,11 +54,8 @@ export class GifsService {
     if (this._tagsHistory.includes(tag)) {
       this._tagsHistory = this._tagsHistory.filter((oldTag) => oldTag !== tag);
     }
-
     this._tagsHistory.unshift(tag);
-
     this._tagsHistory = this._tagsHistory.splice(0, 13);
-
     this.saveLocalStorage();
   }
 
@@ -60,6 +68,6 @@ export class GifsService {
     this._tagsHistory = JSON.parse(localStorage.getItem('history')!);
 
     if (this._tagsHistory.length === 0) return;
-    this.searchTag(this._tagsHistory[0]);
+    this.setSearchTag(this._tagsHistory[0]);
   }
 }
