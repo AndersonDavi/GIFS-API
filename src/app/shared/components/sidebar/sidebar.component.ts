@@ -21,7 +21,7 @@ import { SearchBoxComponent } from '../../../gifs/components/search-box/search-b
 })
 export class SidebarComponent {
   constructor(private gifsService: GifsService) {}
-
+  @Output() search = new EventEmitter<string>();
   @Output() closeMenu = new EventEmitter<void>();
   @ViewChild('sidenav') sidenav!: MatDrawer;
 
@@ -31,6 +31,7 @@ export class SidebarComponent {
 
   searchTag(tag: string) {
     this.gifsService.setSearchTag(tag);
+    this.search.emit(tag);
   }
 
   get tags() {

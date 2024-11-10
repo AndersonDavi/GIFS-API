@@ -39,10 +39,11 @@ export class SearchBoxComponent {
     const newTag = this.taginput.nativeElement.value;
     this.gifsService.setSearchTag(newTag);
     this.setLastTag();
-    console.log('SearchBoxComponent:',newTag);
+    console.log('SearchBoxComponent:', newTag);
     if (newTag) {
       this.search.emit(newTag);
     }
+    this.clearSearchBox();
   }
 
   public setLastTag() {
